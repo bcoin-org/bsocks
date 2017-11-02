@@ -1,0 +1,50 @@
+{
+  "name": "bsocks",
+  "version": "0.0.0",
+  "description": "SOCKS client for node.js",
+  "keywords": [
+    "proxy",
+    "socks"
+  ],
+  "license": "MIT",
+  "repository": "git://github.com/bcoin-org/bsocks.git",
+  "homepage": "https://github.com/bcoin-org/bsocks",
+  "bugs": {
+    "url": "https://github.com/bcoin-org/bsocks/issues"
+  },
+  "author": "Christopher Jeffrey <chjjeffrey@gmail.com>",
+  "main": "./lib/bsocks.js",
+  "scripts": {
+    "browserify": "browserify -s bsocks lib/bsocks.js | uglifyjs -c > bsocks.js",
+    "clean": "rm -f bsocks.js",
+    "lint": "eslint lib/ test/ || exit 0",
+    "test": "mocha --reporter spec test/*-test.js",
+    "webpack": "webpack --config webpack.config.js"
+  },
+  "dependencies": {
+    "binet": "^0.0.1"
+  },
+  "devDependencies": {
+    "babelify": "^7.3.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "browserify": "^14.5.0",
+    "eslint": "^4.9.0",
+    "mocha": "^4.0.1",
+    "uglifyjs-webpack-plugin": "^1.0.0-beta.3",
+    "uglify-es": "^3.1.3",
+    "webpack": "^3.8.1"
+  },
+  "engines": {
+    "node": ">=7.6.0"
+  },
+  "browser": {
+    "./lib/socks": "./lib/socks-browser.js"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  }
+}
