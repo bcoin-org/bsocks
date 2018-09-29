@@ -1,6 +1,6 @@
 {
   "name": "bsocks",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "SOCKS client for node.js",
   "keywords": [
     "proxy",
